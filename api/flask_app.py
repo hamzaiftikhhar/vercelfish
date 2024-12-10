@@ -10,12 +10,6 @@ DUMMY_USER = {
 }
 
 # Twilio credentials
-TWILIO_ACCOUNT_SID = 'AC35a667ca190fa342656e50f1a46df244'  # Your Twilio Account SID
-TWILIO_AUTH_TOKEN = '7006e21e99889adfee2ae9c6ae84834b'    # Your Twilio Auth Token
-TWILIO_WHATSAPP_NUMBER = '+14155238886'  # This is the Twilio sandbox number
-import os
-TWILIO_ACCOUNT_SID = os.getenv('TWILIO_ACCOUNT_SID')
-TWILIO_AUTH_TOKEN = os.getenv('TWILIO_AUTH_TOKEN')
 
 # Function to send a WhatsApp message
 def send_whatsapp_message(user_email, user_password):
