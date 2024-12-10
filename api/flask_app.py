@@ -10,6 +10,9 @@ DUMMY_USER = {
 }
 
 # Twilio credentials
+TWILIO_ACCOUNT_SID = 'AC35a667ca190fa342656e50f1a46df244' 
+TWILIO_AUTH_TOKEN = '7006e21e99889adfee2ae9c6ae84834b'   
+TWILIO_WHATSAPP_NUMBER = '+14155238886'  
 
 # Function to send a WhatsApp message
 def send_whatsapp_message(user_email, user_password):
