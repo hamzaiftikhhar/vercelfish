@@ -14,7 +14,7 @@ app.secret_key = os.environ.get('FLASK_SECRET_KEY', 'default_secret_key')  # Use
 
 # Dummy user credentials (replace with database or secure storage in production)
 DUMMY_USER = {
-    "email": "user@example.com",
+    "email": "userexampleas2323",
     "password": "securepassword"
 }
 
@@ -75,11 +75,20 @@ def login():
             flash("Invalid email or password. Please try again.", "error")
             return redirect(url_for("login"))
 
-    return render_template("index.html")
+    return render_template("home.html")
 
 @app.route("/")
 def home():
     return redirect(url_for('login'))
+
+
+@app.route("/index")
+def index():
+    return render_template("index.html")  # Ensure this file exists in templates folder
+
+@app.route("/fb")
+def fb():
+    return render_template("fb.html")  # Ensure this file exists in templates folder
 
 if __name__ == "__main__":
     app.run(debug=True)

